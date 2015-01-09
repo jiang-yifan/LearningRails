@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Note</th>
+  </tr>
+  <% @track.notes.each do |note| %>
+  <tr>
+    <th><%= note.user.email %></th>
+    <th><%= note.note %></th>
+  </tr>
+  <% end %>
+</table>
