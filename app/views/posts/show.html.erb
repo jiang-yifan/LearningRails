@@ -1,0 +1,7 @@
+<h1> <%= @post.title %> </h1>
+
+<% @post.comments.each do |comment| %>
+  <%= comment.content %> <br>
+<% end %>
+
+<%= link_to "Create Comment", new_post_comment_url(@post) %>
