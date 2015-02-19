@@ -1,0 +1,6 @@
+<% comment.comments.each do |child_comment| %>
+  <ul>
+    <%= child_comment.content %> <br>
+    <%= render 'comment', comment: child_comment unless child_comment.comments.empty? %>
+  </ul>
+<% end %>

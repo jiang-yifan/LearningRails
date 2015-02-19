@@ -1,0 +1,11 @@
+<h1> <%= @comment.content %> </h1>
+
+<%= render 'comment', comment: @comment%>
+
+<%= form_for :comment, url: comments_url do |f| %>
+  <input type="hidden" name="comment[comment_id]" value="<%= @comment.id %>">
+  Content:
+  <textarea name ="comment[content]"></textarea>
+  <br>
+  <%= f.submit %>
+<% end %>

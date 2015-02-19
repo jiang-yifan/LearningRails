@@ -1,0 +1,11 @@
+<%= form_for :post, url: post_url(@post), method: :patch do |f| %>
+  Title: <%= f.text_field :title %> <br />
+  Url: <%= f.text_field :url %> <br />
+  Content: <%= f.text_area :content %> <br />
+  <% Sub.all.each do |sub| %>
+    <input type="checkbox" name="post[sub_ids][]" value=" <%= sub.id %>"
+    <%= "checked" if sub.posts.include? @post %>>
+    <%= label_tag(:sub_id, sub.title) %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

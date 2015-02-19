@@ -1,0 +1,5 @@
+<%= form_for :comment, url: comments_url do |f| %>
+  <input type="hidden" name="post[post_id]" value="<%= Post.find(params[:post_id]).id %>">
+  Content: <%= f.text_area :content %> <br>
+  <%= f.submit %>
+<% end %>
