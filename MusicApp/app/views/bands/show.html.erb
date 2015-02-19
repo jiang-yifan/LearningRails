@@ -1,0 +1,27 @@
+<div class="form-group">
+  <div class ="col-md col-md-offset-2">
+    <h1><%= @band.name %>!</h1>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <table class="table table-bordered table-striped" >
+    <tr>
+      <th>Album Name</th>
+      <th>Album Category</th>
+    </tr>
+    <% @band.albums.each do |album| %>
+    <tr>
+      <th><%= link_to album.name, album_url(album.id) %></th>
+      <th><%= album.category%></th>
+    </tr>
+    <% end %>
+  </table>
+  <% if admin? %>
+    <%= button_to "Edit Band", edit_band_url(@band), method: :get %>
+    <%= button_to "Delete Band", band_url(@band), method: :delete %>
+    <%= button_to "New Band", new_band_url, method: :get %>
+    <%= button_to "Create New Album", new_album_url, method: :get %>
+  <% end %>
+</div>

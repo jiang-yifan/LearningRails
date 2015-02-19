@@ -1,0 +1,6 @@
+<%= button_to "Edit Note", edit_note_url(@note), method: :get %>
+<%= button_to "Delete Note", note_url(@note), method: :delete %>
+<%= button_to "Back to Album", track_url(@note.track_id), method: :get %>
+<br>
+
+<%= @note.note %>

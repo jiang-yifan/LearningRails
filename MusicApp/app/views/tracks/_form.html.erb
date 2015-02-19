@@ -1,0 +1,52 @@
+<% method = track.persisted? ? 'patch' : 'post' %>
+<% submit_name = track.persisted? ? 'Update Track!': 'Create Track!' %>
+<% action_url = track.persisted? ? track_url(track.id) : tracks_url %>
+
+<% if track.errors.full_messages %>
+  <% track.errors.full_messages.each do |msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+<br>
+
+<form  action="<%= action_url %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>">
+  <input type="hidden" name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+  
+  <label for="track_name">Name: </label>
+  <input type="text" id= "track_name" name="track[name]" value="<%= track.name %>">
+  <br>
+
+  <label for="track_lyrics">Lyrics: </label>
+  <textarea  id= "track_lyrics" name="track[lyrics]"
+  value="<%= track.lyrics %>"><%= track.lyrics %></textarea>
+  <br>
+
+  <label>Track Type: </label>
+  <br>
+  <% track.class::TRACK_TYPES.each do |track_type|%>
+    <label for="track_type"><%= track_type %></label>
+    <input type="radio" id="track_type"
+      name="track[track_type]" value="<%= track_type  %>"
+      <%= "checked" if track_type == track.track_type %>>
+    <br>
+  <% end %>
+
+  <label for="track_album_id">Album: </label>
+  <select name="track[album_id]">
+    <% Album.all.each do |album| %>
+    <option
+      <%= album.id == track.album_id ? "selected" : "" %>
+      value="<%= album.id %>">
+      <%= album.name%>
+    </option>
+  <% end %>
+</select>
+<br>
+
+
+  <input type="submit" value="<%= submit_name %>">
+</form>
