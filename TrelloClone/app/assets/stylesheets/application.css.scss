@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.ui.all
+ *= require_tree .
+ */
+
+@import "bootstrap";
+@import "font-awesome";
+
+.navbar-default{
+  margin: 0;
+}
+
+#main{
+  padding: 30px;
+  background: #108784;
+  min-height: 600px;
+}
+
+.list_item{
+  margin-left: 20px;
+  min-width: 200px;
+  padding: 15px;
+  float:left;
+  background: lightgrey;
+  border: 1px solid #108784;
+  border-radius: 5px;
+}
+#list{
+  float: left;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.delete_list{
+  display: none
+}
+
+.delete_card{
+  display: none
+}
+
+.card {
+  margin: 5px;
+  background: white;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+#new_list{
+  margin-left: 20px;
+  float: left
+}
+
+.add_card{
+  margin-top: 20px;
+}
+
+.delete{
+  float: left;
+  color: blue;
+}
+
+.cancel{
+  margin-left: 5px;
+  float: left;
+  color: red;
+  font-size: 16px;
+}
+// .card:hover .delete_card{
+//   display: block
+// }
